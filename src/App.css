@@ -23,6 +23,12 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-image:
+    linear-gradient(rgba(36, 36, 36, 0.85), rgba(36, 36, 36, 0.85)),
+    url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='20' y='50' font-size='40' opacity='0.15'%3E😎%3C/text%3E%3C/svg%3E");
+  background-size: auto, 80px 80px;
+  background-repeat: repeat;
+  background-attachment: fixed;
 }
 
 #root {
@@ -115,10 +121,12 @@ h1 {
 
 .setup-card,
 .quiz-card {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(36, 36, 36, 0.85);
+  backdrop-filter: blur(10px);
   border-radius: 16px;
   padding: 2rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .setup-card label {
@@ -357,9 +365,16 @@ button:active {
     background-color: #ffffff;
   }
 
+  body {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)),
+      url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='20' y='50' font-size='40' opacity='0.12'%3E😎%3C/text%3E%3C/svg%3E");
+  }
+
   .setup-card,
   .quiz-card {
-    background-color: rgba(0, 0, 0, 0.02);
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
   }
 
   .setup-card input,

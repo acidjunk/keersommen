@@ -121,6 +121,25 @@ function App() {
     }
   }, [])
 
+  // Global keyboard event listener voor Enter toets
+  useEffect(() => {
+    const handleGlobalKeyDown = (e) => {
+      if (e.key === 'Enter' && quizStarted && !tijdOp) {
+        e.preventDefault()
+        if (feedback === '') {
+          controleerAntwoord()
+        } else {
+          volgendeSom()
+        }
+      }
+    }
+
+    window.addEventListener('keydown', handleGlobalKeyDown)
+    return () => {
+      window.removeEventListener('keydown', handleGlobalKeyDown)
+    }
+  }, [quizStarted, tijdOp, feedback, gebruikersAntwoord, huidigeSom])
+
   const formateerTijd = (seconden) => {
     const minuten = Math.floor(seconden / 60)
     const sec = seconden % 60
