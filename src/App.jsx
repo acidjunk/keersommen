@@ -15,53 +15,37 @@ function App() {
   const timerRef = useRef(null)
   const autoVolgendeSomRef = useRef(null)
 
-  // Geluid functies met Web Audio API
+  // Spraak functies met Web Speech API
   const speelGoedGeluid = () => {
-    const audioContext = new (window.AudioContext || window.webkitAudioContext)()
-    const oscillator = audioContext.createOscillator()
-    const gainNode = audioContext.createGain()
+    const utterance = new SpeechSynthesisUtterance('Good boy!')
+    utterance.rate = 1.1
+    utterance.pitch = 1.2
+    utterance.volume = 1.0
 
-    oscillator.connect(gainNode)
-    gainNode.connect(audioContext.destination)
+    // Probeer een Engelse stem te vinden
+    const voices = speechSynthesis.getVoices()
+    const englishVoice = voices.find(voice => voice.lang.startsWith('en-'))
+    if (englishVoice) {
+      utterance.voice = englishVoice
+    }
 
-    oscillator.frequency.value = 523.25 // C note
-    oscillator.type = 'sine'
-    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime)
-    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3)
-
-    oscillator.start(audioContext.currentTime)
-    oscillator.stop(audioContext.currentTime + 0.3)
-
-    // Tweede toon voor vrolijk effect
-    setTimeout(() => {
-      const osc2 = audioContext.createOscillator()
-      const gain2 = audioContext.createGain()
-      osc2.connect(gain2)
-      gain2.connect(audioContext.destination)
-      osc2.frequency.value = 659.25 // E note
-      osc2.type = 'sine'
-      gain2.gain.setValueAtTime(0.3, audioContext.currentTime)
-      gain2.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2)
-      osc2.start(audioContext.currentTime)
-      osc2.stop(audioContext.currentTime + 0.2)
-    }, 100)
+    speechSynthesis.speak(utterance)
   }
 
   const speelFoutGeluid = () => {
-    const audioContext = new (window.AudioContext || window.webkitAudioContext)()
-    const oscillator = audioContext.createOscillator()
-    const gainNode = audioContext.createGain()
+    const utterance = new SpeechSynthesisUtterance('Bruh!')
+    utterance.rate = 0.9
+    utterance.pitch = 0.7
+    utterance.volume = 1.0
 
-    oscillator.connect(gainNode)
-    gainNode.connect(audioContext.destination)
+    // Probeer een Engelse stem te vinden
+    const voices = speechSynthesis.getVoices()
+    const englishVoice = voices.find(voice => voice.lang.startsWith('en-'))
+    if (englishVoice) {
+      utterance.voice = englishVoice
+    }
 
-    oscillator.frequency.value = 200
-    oscillator.type = 'sawtooth'
-    gainNode.gain.setValueAtTime(0.3, audioContext.currentTime)
-    gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.4)
-
-    oscillator.start(audioContext.currentTime)
-    oscillator.stop(audioContext.currentTime + 0.4)
+    speechSynthesis.speak(utterance)
   }
 
   const speelTijdOpGeluid = () => {

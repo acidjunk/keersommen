@@ -25,8 +25,8 @@ body {
   min-height: 100vh;
   background-image:
     linear-gradient(rgba(36, 36, 36, 0.85), rgba(36, 36, 36, 0.85)),
-    url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='20' y='50' font-size='40' opacity='0.15'%3E😎%3C/text%3E%3C/svg%3E");
-  background-size: auto, 80px 80px;
+    url("data:image/svg+xml,%3Csvg width='50' height='50' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='10' y='35' font-size='30' opacity='0.15'%3E😎%3C/text%3E%3C/svg%3E");
+  background-size: auto, 50px 50px;
   background-repeat: repeat;
   background-attachment: fixed;
 }
@@ -368,7 +368,8 @@ button:active {
   body {
     background-image:
       linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)),
-      url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='20' y='50' font-size='40' opacity='0.12'%3E😎%3C/text%3E%3C/svg%3E");
+      url("data:image/svg+xml,%3Csvg width='50' height='50' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='10' y='35' font-size='30' opacity='0.12'%3E😎%3C/text%3E%3C/svg%3E");
+    background-size: auto, 50px 50px;
   }
 
   .setup-card,
